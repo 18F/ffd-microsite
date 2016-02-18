@@ -1,1 +1,27 @@
+# Sass files
+.sass-cache
+
+# OS and Editor files
 .DS_Store
+*.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+.svn
+.idea
+.swp
+
+# Node modules
+node_modules/
+
+# Compiled or Bundled Static Assets
+static/assets/
+
+# Dropbox files that get included
+.dropbox
+Icon*
+
+# Adobe Asset Files
+*.psd
+*.ai
+*.indd/vendor/
