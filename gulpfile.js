@@ -125,7 +125,10 @@ gulp.task('images', function () {
 
 gulp.task('fonts', function () {
   gutil.log('fonts', 'Copying font assets');
-  return gulp.src('./assets/fonts/**/*')
+  return gulp.src([
+      './assets/fonts/**/*',
+      './node_modules/uswds/src/fonts/**/*'
+    ])
     .pipe(gulp.dest('./static/assets/fonts'));
 });
 
@@ -137,7 +140,7 @@ gulp.task('build', [ 'clean-all' ], function (done) {
 
 gulp.task('watch', function () {
   gutil.log('watch', 'Watching assets for changes');
-  gulp.watch('./assets/styles/**/*.scss', [ 'styles' ]);
+  gulp.watch('./assets/styles/**/*.scss', [ 'styles:homepage' ]);
   gulp.watch('./assets/scripts/**/*.js', [ 'scripts' ]);
 });
 
