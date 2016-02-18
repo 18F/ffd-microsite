@@ -95,7 +95,7 @@ gulp.task('styles', [ 'scss-lint' ], function () {
 
 gulp.task('scripts', [ 'eslint' ], function () {
 
-  gutil.log('images', 'Browserifying JavaScript assets');
+  gutil.log('scripts', 'Browserifying JavaScript assets');
 
   var bundle = browserify({
     entries: './assets/scripts/start.js',
