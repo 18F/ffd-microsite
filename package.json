@@ -1,0 +1,42 @@
+{
+  "name": "ffd-microsite",
+  "version": "1.0.0",
+  "description": "This repository contains the files and infrastructure to run the Federal Front Door Microsite.",
+  "private": true,
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-scss-lint": "^0.3.9",
+    "gulp-size": "^2.0.0",
+    "gulp-uglify": "^1.5.2",
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/18F/ffd-microsite.git"
+  },
+  "keywords": [],
+  "contributors": [
+    "Maya Benari <maya.benari@gsa.gov>",
+    "Julia Elman <julia.elman@gsa.gov>",
+    "Roger Steve Ruiz <roger.ruiz@gsa.gov>"
+  ],
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/18F/ffd-microsite/issues"
+  },
+  "homepage": "https://github.com/18F/ffd-microsite"
+}
