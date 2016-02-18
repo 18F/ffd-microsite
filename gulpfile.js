@@ -71,12 +71,12 @@ gulp.task('eslint', function (done) {
 
 });
 
-gulp.task('styles', [ 'scss-lint' ], function () {
+gulp.task('styles:homepage', [ 'scss-lint' ], function () {
 
-  gutil.log('styles', 'Compiling Sass assets');
+  gutil.log('styles:homepage', 'Compiling Sass assets');
 
   var sassStream = sass();
-  var stream = gulp.src('./assets/styles/start.scss')
+  var stream = gulp.src('./assets/styles/homepage.scss')
     .pipe(sassFiles);
 
   if (cFlags.production) {
@@ -85,7 +85,6 @@ gulp.task('styles', [ 'scss-lint' ], function () {
   }
 
   stream = stream.pipe(sassStream.on('error', sass.logError))
-    .pipe(rename('main.css'))
     .pipe(size())
     .pipe(gulp.dest('./static/assets/styles'));
 
@@ -133,7 +132,7 @@ gulp.task('fonts', function () {
 gulp.task('build', [ 'clean-all' ], function (done) {
   printPackageInfo();
   gutil.log('build', 'Building asset-pipeline');
-  runSequence([ 'styles', 'scripts' ], done);
+  runSequence([ 'styles:homepage', 'scripts' ], done);
 });
 
 gulp.task('watch', function () {
