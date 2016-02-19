@@ -141,7 +141,7 @@ gulp.task('fonts', function () {
 gulp.task('build', [ 'clean-all' ], function (done) {
   printPackageInfo();
   gutil.log(gutil.colors.cyan('build'), 'Building asset-pipeline');
-  runSequence([ 'styles:homepage', 'scripts', 'images' ], done);
+  runSequence([ 'styles:homepage', 'scripts', 'images', 'fonts' ], done);
 });
 
 gulp.task('watch', function () {
