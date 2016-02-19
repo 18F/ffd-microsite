@@ -17,7 +17,6 @@ var filter = require('gulp-filter');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var rename = require('gulp-rename');
-var size = require('gulp-size');
 var runSequence = require('run-sequence');
 var pkg = require('./package.json');
 var sassFiles = filter([ '**/*.scss' ], { restore: true });
@@ -30,13 +29,13 @@ var cFlags = {
 };
 
 gulp.task('no-test', function (done) {
-  gutil.log('Disabling tests');
+  gutil.log(gutil.colors.cyan('no-test'), 'Disabling tests');
   cFlags.test = false;
   done();
 });
 
 gulp.task('production', function (done) {
-  gutil.log('Enabling production tasks');
+  gutil.log(gutil.colors.cyan('production'), 'Enabling production tasks');
   cFlags.production = true;
   done();
 });
@@ -48,12 +47,11 @@ gulp.task('clean-all', function () {
 gulp.task('scss-lint', function (done) {
 
   if (!cFlags.test) {
-    gutil.log('scss-lint', 'Disabling linting');
+    gutil.log(gutil.colors.cyan('scss-lint'), 'Disabling linting');
     return done();
   }
 
   return gulp.src('./assets/styles/**/*.scss')
-    .pipe(size())
     .pipe(scsslint());
 
 });
@@ -61,31 +59,37 @@ gulp.task('scss-lint', function (done) {
 gulp.task('eslint', function (done) {
 
   if (!cFlags.test) {
-    gutil.log('eslint', 'Disabling linting');
+    gutil.log(gutil.colors.cyan('eslint'), 'Disabling linting');
     return done();
   }
 
   return gulp.src('./assets/scripts/**/*.js')
-    .pipe(size())
     .pipe(eslint());
 
 });
 
 gulp.task('styles:homepage', [ 'scss-lint' ], function () {
 
-  gutil.log('styles:homepage', 'Compiling Sass assets');
+  gutil.log(gutil.colors.cyan('styles:homepage'), 'Compiling Sass assets');
 
   var sassStream = sass();
-  var stream = gulp.src('./assets/styles/homepage.scss')
-    .pipe(sassFiles);
+  var stream = gulp.src('./assets/styles/homepage.scss');
 
   if (cFlags.production) {
-    gutil.log('styles', 'Compressing styles');
+    gutil.log(gutil.colors.cyan('styles:homepage'), 'Compressing styles');
     sassStream = sass({ outputStyle: 'compressed' });
   }
 
-  stream = stream.pipe(sassStream.on('error', sass.logError))
-    .pipe(size())
+  stream = stream.pipe(sassStream)
+    .on('error', function (error) {
+      gutil.log(
+        gutil.colors.yellow('styles:homepage'),
+        gutil.colors.red('error'),
+        '\n',
+        error.messageFormatted
+      );
+      this.emit('end');
+    })
     .pipe(gulp.dest('./static/assets/styles'));
 
   return stream;
@@ -94,7 +98,7 @@ gulp.task('styles:homepage', [ 'scss-lint' ], function () {
 
 gulp.task('scripts', [ 'eslint' ], function () {
 
-  gutil.log('scripts', 'Browserifying JavaScript assets');
+  gutil.log(gutil.colors.cyan('scripts'), 'Browserifying JavaScript assets');
 
   var bundle = browserify({
     entries: './assets/scripts/start.js',
@@ -105,12 +109,11 @@ gulp.task('scripts', [ 'eslint' ], function () {
     .pipe(buffer());
 
   if (cFlags.production) {
-    gutil.log('scripts', 'Compressing scripts');
+    gutil.log(gutil.colors.cyan('scripts'), 'Compressing scripts');
     bundle = bundle.pipe(uglify());
   }
 
   bundle = bundle.pipe(rename('main.js'))
-    .pipe(size())
     .pipe(gulp.dest('./static/assets/scripts'));
 
   return bundle;
@@ -118,26 +121,26 @@ gulp.task('scripts', [ 'eslint' ], function () {
 });
 
 gulp.task('images', function () {
-  gutil.log('images', 'Copying image assets');
+  gutil.log(gutil.colors.cyan('images'), 'Copying image assets');
   return gulp.src('./assets/images/**/*')
     .pipe(gulp.dest('./static/assets/images'));
 });
 
 gulp.task('fonts', function () {
-  gutil.log('fonts', 'Copying font assets');
+  gutil.log(gutil.colors.cyan('fonts'), 'Copying font assets');
   return gulp.src('./assets/fonts/**/*')
     .pipe(gulp.dest('./static/assets/fonts'));
 });
 
 gulp.task('build', [ 'clean-all' ], function (done) {
   printPackageInfo();
-  gutil.log('build', 'Building asset-pipeline');
+  gutil.log(gutil.colors.cyan('build'), 'Building asset-pipeline');
   runSequence([ 'styles:homepage', 'scripts' ], done);
 });
 
 gulp.task('watch', function () {
-  gutil.log('watch', 'Watching assets for changes');
-  gulp.watch('./assets/styles/**/*.scss', [ 'styles' ]);
+  gutil.log(gutil.colors.cyan('watch'), 'Watching assets for changes');
+  gulp.watch('./assets/styles/**/*.scss', [ 'styles:homepage' ]);
   gulp.watch('./assets/scripts/**/*.js', [ 'scripts' ]);
 });
 
