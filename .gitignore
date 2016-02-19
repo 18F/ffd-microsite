@@ -17,10 +17,6 @@ node_modules/
 # Compiled or Bundled Static Assets
 static/assets/
 
-# Dropbox files that get included
-.dropbox
-Icon*
-
 # Adobe Asset Files
 *.psd
 *.ai

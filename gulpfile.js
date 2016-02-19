@@ -122,26 +122,33 @@ gulp.task('scripts', [ 'eslint' ], function () {
 
 gulp.task('images', function () {
   gutil.log(gutil.colors.cyan('images'), 'Copying image assets');
-  return gulp.src('./assets/images/**/*')
+  return gulp.src([
+      './assets/images/**/*',
+      './node_modules/uswds/src/img/**/*'
+    ])
     .pipe(gulp.dest('./static/assets/images'));
 });
 
 gulp.task('fonts', function () {
   gutil.log(gutil.colors.cyan('fonts'), 'Copying font assets');
-  return gulp.src('./assets/fonts/**/*')
+  return gulp.src([
+      './assets/fonts/**/*',
+      './node_modules/uswds/src/fonts/**/*'
+    ])
     .pipe(gulp.dest('./static/assets/fonts'));
 });
 
 gulp.task('build', [ 'clean-all' ], function (done) {
   printPackageInfo();
   gutil.log(gutil.colors.cyan('build'), 'Building asset-pipeline');
-  runSequence([ 'styles:homepage', 'scripts' ], done);
+  runSequence([ 'styles:homepage', 'scripts', 'images', 'fonts' ], done);
 });
 
 gulp.task('watch', function () {
   gutil.log(gutil.colors.cyan('watch'), 'Watching assets for changes');
   gulp.watch('./assets/styles/**/*.scss', [ 'styles:homepage' ]);
   gulp.watch('./assets/scripts/**/*.js', [ 'scripts' ]);
+  gulp.watch('./assets/images/**/*', [ 'images' ]);
 });
 
 gulp.task('website', [ 'build', 'watch' ], function (done) {
