@@ -73,16 +73,23 @@ gulp.task('styles:homepage', [ 'scss-lint' ], function () {
   gutil.log(gutil.colors.cyan('styles:homepage'), 'Compiling Sass assets');
 
   var sassStream = sass();
-  var stream = gulp.src('./assets/styles/homepage.scss')
-    .pipe(sassFiles);
+  var stream = gulp.src('./assets/styles/homepage.scss');
 
   if (cFlags.production) {
     gutil.log(gutil.colors.cyan('styles:homepage'), 'Compressing styles');
     sassStream = sass({ outputStyle: 'compressed' });
   }
 
-  stream = stream.pipe(sassStream.on('error', sass.logError))
-    .pipe(size())
+  stream = stream.pipe(sassStream)
+    .on('error', function (error) {
+      gutil.log(
+        gutil.colors.yellow('styles:homepage'),
+        gutil.colors.red('error'),
+        '\n',
+        error.messageFormatted
+      );
+      this.emit('end');
+    })
     .pipe(gulp.dest('./static/assets/styles'));
 
   return stream;
@@ -133,7 +140,7 @@ gulp.task('build', [ 'clean-all' ], function (done) {
 
 gulp.task('watch', function () {
   gutil.log(gutil.colors.cyan('watch'), 'Watching assets for changes');
-  gulp.watch('./assets/styles/**/*.scss', [ 'styles' ]);
+  gulp.watch('./assets/styles/**/*.scss', [ 'styles:homepage' ]);
   gulp.watch('./assets/scripts/**/*.js', [ 'scripts' ]);
 });
 
