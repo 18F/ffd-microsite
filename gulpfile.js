@@ -119,7 +119,10 @@ gulp.task('scripts', [ 'eslint' ], function () {
 
 gulp.task('images', function () {
   gutil.log('images', 'Copying image assets');
-  return gulp.src('./assets/images/**/*')
+  return gulp.src([
+      './assets/images/**/*',
+      './node_modules/uswds/src/img/**/*'
+    ])
     .pipe(gulp.dest('./static/assets/images'));
 });
 
