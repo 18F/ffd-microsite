@@ -18,7 +18,8 @@
     "gulp-util": "^3.0.7",
     "run-sequence": "^1.1.5",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "uswds": "git+https://github.com/18F/web-design-standards.git#18f-pages-staging"
   },
   "scripts": {
     "test": "gulp scss-lint eslint"
