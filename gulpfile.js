@@ -17,7 +17,6 @@ var filter = require('gulp-filter');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var rename = require('gulp-rename');
-var size = require('gulp-size');
 var runSequence = require('run-sequence');
 var pkg = require('./package.json');
 var sassFiles = filter([ '**/*.scss' ], { restore: true });
@@ -53,7 +52,6 @@ gulp.task('scss-lint', function (done) {
   }
 
   return gulp.src('./assets/styles/**/*.scss')
-    .pipe(size())
     .pipe(scsslint());
 
 });
@@ -66,7 +64,6 @@ gulp.task('eslint', function (done) {
   }
 
   return gulp.src('./assets/scripts/**/*.js')
-    .pipe(size())
     .pipe(eslint());
 
 });
@@ -110,7 +107,6 @@ gulp.task('scripts', [ 'eslint' ], function () {
   }
 
   bundle = bundle.pipe(rename('main.js'))
-    .pipe(size())
     .pipe(gulp.dest('./static/assets/scripts'));
 
   return bundle;
