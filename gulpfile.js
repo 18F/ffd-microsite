@@ -29,13 +29,13 @@ var cFlags = {
 };
 
 gulp.task('no-test', function (done) {
-  gutil.log('Disabling tests');
+  gutil.log(gutil.colors.cyan('no-test'), 'Disabling tests');
   cFlags.test = false;
   done();
 });
 
 gulp.task('production', function (done) {
-  gutil.log('Enabling production tasks');
+  gutil.log(gutil.colors.cyan('production'), 'Enabling production tasks');
   cFlags.production = true;
   done();
 });
@@ -47,7 +47,7 @@ gulp.task('clean-all', function () {
 gulp.task('scss-lint', function (done) {
 
   if (!cFlags.test) {
-    gutil.log('scss-lint', 'Disabling linting');
+    gutil.log(gutil.colors.cyan('scss-lint'), 'Disabling linting');
     return done();
   }
 
@@ -59,7 +59,7 @@ gulp.task('scss-lint', function (done) {
 gulp.task('eslint', function (done) {
 
   if (!cFlags.test) {
-    gutil.log('eslint', 'Disabling linting');
+    gutil.log(gutil.colors.cyan('eslint'), 'Disabling linting');
     return done();
   }
 
@@ -70,14 +70,14 @@ gulp.task('eslint', function (done) {
 
 gulp.task('styles:homepage', [ 'scss-lint' ], function () {
 
-  gutil.log('styles:homepage', 'Compiling Sass assets');
+  gutil.log(gutil.colors.cyan('styles:homepage'), 'Compiling Sass assets');
 
   var sassStream = sass();
   var stream = gulp.src('./assets/styles/homepage.scss')
     .pipe(sassFiles);
 
   if (cFlags.production) {
-    gutil.log('styles', 'Compressing styles');
+    gutil.log(gutil.colors.cyan('styles:homepage'), 'Compressing styles');
     sassStream = sass({ outputStyle: 'compressed' });
   }
 
@@ -91,7 +91,7 @@ gulp.task('styles:homepage', [ 'scss-lint' ], function () {
 
 gulp.task('scripts', [ 'eslint' ], function () {
 
-  gutil.log('scripts', 'Browserifying JavaScript assets');
+  gutil.log(gutil.colors.cyan('scripts'), 'Browserifying JavaScript assets');
 
   var bundle = browserify({
     entries: './assets/scripts/start.js',
@@ -102,7 +102,7 @@ gulp.task('scripts', [ 'eslint' ], function () {
     .pipe(buffer());
 
   if (cFlags.production) {
-    gutil.log('scripts', 'Compressing scripts');
+    gutil.log(gutil.colors.cyan('scripts'), 'Compressing scripts');
     bundle = bundle.pipe(uglify());
   }
 
@@ -114,25 +114,25 @@ gulp.task('scripts', [ 'eslint' ], function () {
 });
 
 gulp.task('images', function () {
-  gutil.log('images', 'Copying image assets');
+  gutil.log(gutil.colors.cyan('images'), 'Copying image assets');
   return gulp.src('./assets/images/**/*')
     .pipe(gulp.dest('./static/assets/images'));
 });
 
 gulp.task('fonts', function () {
-  gutil.log('fonts', 'Copying font assets');
+  gutil.log(gutil.colors.cyan('fonts'), 'Copying font assets');
   return gulp.src('./assets/fonts/**/*')
     .pipe(gulp.dest('./static/assets/fonts'));
 });
 
 gulp.task('build', [ 'clean-all' ], function (done) {
   printPackageInfo();
-  gutil.log('build', 'Building asset-pipeline');
+  gutil.log(gutil.colors.cyan('build'), 'Building asset-pipeline');
   runSequence([ 'styles:homepage', 'scripts' ], done);
 });
 
 gulp.task('watch', function () {
-  gutil.log('watch', 'Watching assets for changes');
+  gutil.log(gutil.colors.cyan('watch'), 'Watching assets for changes');
   gulp.watch('./assets/styles/**/*.scss', [ 'styles' ]);
   gulp.watch('./assets/scripts/**/*.js', [ 'scripts' ]);
 });
