@@ -135,13 +135,14 @@ gulp.task('fonts', function () {
 gulp.task('build', [ 'clean-all' ], function (done) {
   printPackageInfo();
   gutil.log('build', 'Building asset-pipeline');
-  runSequence([ 'styles:homepage', 'scripts' ], done);
+  runSequence([ 'styles:homepage', 'scripts', 'images' ], done);
 });
 
 gulp.task('watch', function () {
   gutil.log('watch', 'Watching assets for changes');
   gulp.watch('./assets/styles/**/*.scss', [ 'styles:homepage' ]);
   gulp.watch('./assets/scripts/**/*.js', [ 'scripts' ]);
+  gulp.watch('./assets/images/**/*', [ 'images' ]);
 });
 
 gulp.task('website', [ 'build', 'watch' ], function (done) {
