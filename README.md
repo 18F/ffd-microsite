@@ -1,5 +1,7 @@
 # Federal Front Door Microsite
 
+[![Build Status](https://travis-ci.org/18F/ffd-microsite.svg?branch=master)](https://travis-ci.org/18F/ffd-microsite)
+
 This repository contains the files and infrastructure to run the Federal Front
 Door Microsite.
 

@@ -1,6 +1,12 @@
-language: node_js
-node_js:
-  - "5.5.0"
-before_script:
-  - npm install -g gulp
-script: npm test
+language: go
+go:
+  - 1.5.1
+  - tip
+install:
+  - go get -u -v github.com/spf13/hugo
+  - gem install scss_lint
+  - npm install
+script:
+  - npm start
+  - npm test
+  - npm build
