@@ -199,17 +199,17 @@ h1, h2 {
 // Media object - possible pattern for inclusion in library
 .usa-media, 
 .usa-media-text {
-  overflow:hidden;
-  _overflow:visible;
-  zoom:1;
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
 }
 
 .usa-media-img {
-  float:left;
+  float: left;
   margin-right: 10px;
 
   img {
-    display:block;
+    display: block;
   }
 }
 
