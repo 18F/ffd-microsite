@@ -14,11 +14,13 @@ p {
   font-size: 1.7rem;
 }
 
-a {
-  color: $color-gray-light;
+.usa-section-alt {
+    a {
+    color: $color-gray-light;
 
-  &:hover {
-    color: $color-white;
+    &:hover {
+      color: $color-white;
+    }
   }
 }
 
