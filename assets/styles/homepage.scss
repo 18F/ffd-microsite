@@ -14,16 +14,6 @@ p {
   font-size: 1.7rem;
 }
 
-.usa-section-alt {
-    a {
-    color: $color-gray-light;
-
-    &:hover {
-      color: $color-white;
-    }
-  }
-}
-
 .usa-content {
   p {
     max-width: $text-width;
@@ -116,6 +106,14 @@ p {
   background-color: $color-primary-darkest;
   color: $color-white;
 
+  a {
+    color: $color-gray-light;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
   h2,
   h3,
   .usa-font-lead {
@@ -137,10 +135,6 @@ p {
   }
 }
 
-.usa-circle-block img {
-  width: 124px;
-}
-
 @include media($medium-screen) {
   .usa-img-circle {
     float: left;
@@ -159,13 +153,23 @@ p {
 
 .usa-circle-block {
   text-align: center;
+
+  img {
+    width: 124px;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $color-primary-darker;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 0;
 }
 
