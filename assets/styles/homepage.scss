@@ -221,12 +221,14 @@ h2 {
   }
 }
 
-// Custom media styles
+// Custom media object styles
+
+// scss-lint:disable MergeableSelector
 .usa-media-img {
-  // scss-lint:disable MergeableSelector
   margin-top: 4px;
   width: 2.4rem;
 }
+// scss-lint:enable MergeableSelector
 
 .usa-no_margins {
   margin: 0;
