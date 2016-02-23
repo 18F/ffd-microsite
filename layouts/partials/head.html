@@ -11,7 +11,13 @@
 
 <!-- Title and meta description
 ================================================== -->
-  <title>{{ .Site.Title }}</title>
+  <title>{{ .Site.Params.Title }}</title>
+  <meta property="og:title" content="{{ .Site.Params.Title }}" />
+
+  <meta name="description" content="{{ .Site.Params.Description }}">
+  <meta property="og:description" content="{{ .Site.Params.Description }}" />
+
+  <link rel="canonical" href="{{ .Site.BaseURL }}" />
 
 <!-- Favicons
 ================================================== -->

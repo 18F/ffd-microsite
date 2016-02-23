@@ -1,3 +1,5 @@
 baseurl = "https://ffd-microsite-staging.apps.cloud.gov"
 languageCode = "en-us"
-title = "Federal Front Door"
+[params]
+  Title = "Federal Front Door"
+  Description = "The public’s front door to  government services"
