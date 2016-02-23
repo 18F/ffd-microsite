@@ -1,6 +1,6 @@
 // Imports -------------- //
 
-@import "../../node_modules/uswds/src/stylesheets/all";
+@import '../../node_modules/uswds/src/stylesheets/all';
 
 // Variables ------------ //
 
@@ -14,14 +14,6 @@ p {
   font-size: 1.7rem;
 }
 
-a {
-  color: $color-gray-light;
-
-  &:hover {
-    color: $color-white;
-  }
-}
-
 .usa-content {
   p {
     max-width: $text-width;
@@ -29,6 +21,7 @@ a {
 }
 
 .nav-horizontal {
+  // scss-lint:disable SelectorDepth
   text-align: center;
 
   ul {
@@ -55,7 +48,7 @@ a {
 
 .usa-banner {
   background-color: $color-primary;
-  background-image: url("../images/houses.svg");
+  background-image: url('../images/houses.svg');
   background-position: center bottom;
   background-repeat: no-repeat;
   height: calc(100vh - 9.5rem);
@@ -114,6 +107,14 @@ a {
   background-color: $color-primary-darkest;
   color: $color-white;
 
+  a {
+    color: $color-gray-light;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
   h2,
   h3,
   .usa-font-lead {
@@ -135,10 +136,6 @@ a {
   }
 }
 
-.usa-circle-block img {
-  width: 124px;
-}
-
 @include media($medium-screen) {
   .usa-img-circle {
     float: left;
@@ -157,13 +154,23 @@ a {
 
 .usa-circle-block {
   text-align: center;
+
+  img {
+    width: 124px;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $color-primary-darker;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 0;
 }
 
@@ -197,24 +204,32 @@ h1, h2 {
 }
 
 // Media object - possible pattern for inclusion in library
-.usa-media, 
+.usa-media,
 .usa-media-text {
-  overflow:hidden;
-  _overflow:visible;
-  zoom:1;
+  // scss-lint:disable PropertySpelling
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
 }
 
 .usa-media-img {
-  float:left;
+  float: left;
   margin-right: 10px;
 
   img {
-    display:block;
+    display: block;
   }
 }
 
-// Custom media styles
+// Custom media object styles
+
+// scss-lint:disable MergeableSelector
 .usa-media-img {
   margin-top: 4px;
   width: 2.4rem;
+}
+// scss-lint:enable MergeableSelector
+
+.usa-no_margins {
+  margin: 0;
 }
