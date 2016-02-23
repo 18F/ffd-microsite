@@ -1,6 +1,6 @@
 // Imports -------------- //
 
-@import "../../node_modules/uswds/src/stylesheets/all";
+@import '../../node_modules/uswds/src/stylesheets/all';
 
 // Variables ------------ //
 
@@ -21,6 +21,7 @@ p {
 }
 
 .nav-horizontal {
+  // scss-lint:disable SelectorDepth
   text-align: center;
 
   ul {
@@ -47,7 +48,7 @@ p {
 
 .usa-banner {
   background-color: $color-primary;
-  background-image: url("../images/houses.svg");
+  background-image: url('../images/houses.svg');
   background-position: center bottom;
   background-repeat: no-repeat;
   height: calc(100vh - 9.5rem);
@@ -205,6 +206,7 @@ h2 {
 // Media object - possible pattern for inclusion in library
 .usa-media, 
 .usa-media-text {
+  // scss-lint:disable PropertySpelling
   overflow: hidden;
   _overflow: visible;
   zoom: 1;
@@ -221,6 +223,7 @@ h2 {
 
 // Custom media styles
 .usa-media-img {
+  // scss-lint:disable MergeableSelector
   margin-top: 4px;
   width: 2.4rem;
 }
@@ -228,4 +231,3 @@ h2 {
 .usa-no_margins {
   margin: 0;
 }
-
