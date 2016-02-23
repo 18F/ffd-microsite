@@ -15,7 +15,8 @@ Thumbs.db
 node_modules/
 
 # Compiled or Bundled Static Assets
-static/assets/
+/static/assets/
+/public/
 
 # Adobe Asset Files
 *.psd

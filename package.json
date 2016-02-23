@@ -22,6 +22,8 @@
     "uswds": "git+https://github.com/18F/web-design-standards.git#18f-pages-staging"
   },
   "scripts": {
+    "start": "gulp && gulp clean-all && gulp website",
+    "build": "gulp production build:website",
     "test": "gulp scss-lint eslint"
   },
   "repository": {

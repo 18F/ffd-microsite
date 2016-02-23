@@ -1,6 +1,22 @@
-language: node_js
-node_js:
-  - "5.5.0"
-before_script:
-  - npm install -g gulp
-script: npm test
+language: go
+go:
+- 1.5.1
+- tip
+install:
+- go get -u -v github.com/spf13/hugo
+- gem install scss_lint
+- npm install
+script:
+- gulp
+- npm test
+- npm build
+deploy:
+  provider: cloudfoundry
+  api: https://api.cloud.gov
+  username: jeremy.grahame@gsa.gov
+  password:
+    secure: gonAoM9BOE61HGxp6ezEQkoFzK6VcnWHStTsmmmrEUR3BAmnHAB98hUKL1/ZPmEEqyc4g9AxYbGOdVY06ecfcFgejYJ1bSZyMxAAshzYdj12nnN5rTf9+Oi4PRJpkduiFLzw5DTUse/y3ESI3GWPgHrA/8hOd+egacw92gQqYk4pNL5VnCF5xSUOwZoFV8MM3XJ2xY/jUxSJvA9pinbhddmpAHo5WYITFVmV7MXo14u0YHBLJgZ6zS/cIkVJfdcP9vLX3Q/5niRGpLdHIuQ5zbu2iGf8K7R9WQb+u1kAD8piLDxldmQsdS1UP9itrnyZiQJ4vmO9mWoOI61eyRkInpIV1wMTE3f8i7NAKgXDiNggK+zKqixJKAIaT0BXRcV9y2MZrWwQGz8hW3H7dKu0l44Byy1lmrJZZ6ZVzA+d1wpASWka/r37ziUE0D6BBCyrUSO3aETi9/qU4HUVKBFBBTn/UJbYoqH1LYk1syxAbltawEOmybpuZfXtTTtlgfCPEt6B2M3Wid7n2eLLy3wonFmUTtseCWLuyqjIq4y6edO3VZT/neg0RWV+I4IuiFTXuz7T3khWfGcLaQmUFM+iR6v4PHncioUjlCbKWu+zdXdLhxe+Gc1y2Z5AJ1jpSrMANftleJn/tw1TCcSFaH/C/LX8IiqJFY08Pinl1So3X3Q=
+  organization: gsa-ffd
+  space: microsite-staging
+  on:
+    repo: 18F/ffd-microsite
