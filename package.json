@@ -16,10 +16,11 @@
     "gulp-scss-lint": "^0.3.9",
     "gulp-uglify": "^1.5.2",
     "gulp-util": "^3.0.7",
+    "jquery": "^1.12.1",
     "run-sequence": "^1.1.5",
+    "uswds": "git+https://github.com/18F/web-design-standards.git#18f-pages-staging",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "uswds": "git+https://github.com/18F/web-design-standards.git#18f-pages-staging"
+    "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
     "start": "gulp && gulp clean-all && gulp website",
