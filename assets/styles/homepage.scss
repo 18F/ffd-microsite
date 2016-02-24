@@ -22,6 +22,7 @@ p {
 
 .nav-horizontal {
   // scss-lint:disable SelectorDepth
+  background-color: $color-white;
   text-align: center;
 
   ul {
@@ -44,6 +45,13 @@ p {
       @include padding(null 2.7rem);
     }
   }
+}
+
+.is-sticky-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 
 .usa-banner {
