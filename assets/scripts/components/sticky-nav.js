@@ -49,7 +49,8 @@ module.exports = function stickyNav (event) {
 
   var originalNavigationHeight = $nav.outerHeight(true);
   var bannerHeight = window.innerHeight;
-  var scrollPositionY = window.scrollY + originalNavigationHeight;
+  var scrollY = $(window).scrollTop();
+  var scrollPositionY = scrollY + originalNavigationHeight;
 
   if (scrollPositionY > bannerHeight) {
     $nav.addClass(STICKY_CLASS_NAME);
