@@ -38,11 +38,13 @@ p {
   a {
     color: $color-gray-dark;
     font-family: $font-serif;
+    font-size: $h6-font-size;
     font-weight: $font-bold;
-    padding: 2rem 1rem;
+    padding: 2.2rem .8rem;
 
     @include media ($medium-screen) {
       @include padding(null 2.7rem);
+      font-size: $base-font-size;
     }
   }
 }
