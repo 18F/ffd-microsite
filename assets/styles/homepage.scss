@@ -65,8 +65,7 @@ p {
   text-align: center;
 
   @media screen and (min-aspect-ratio: 10/7) {
-    background-color: pink;
-  //  background-image: url("../images/houses.svg")
+    background-image: url('../images/houses-wide.svg');
   }
 
   @media (max-height: 400px) {
