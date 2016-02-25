@@ -3,8 +3,8 @@ var calculateAnchorPosition = require('./calculate-anchor-position');
 var $nav = $('.js-sticky-nav');
 var STICKY_CLASS_NAME = 'is-sticky-nav';
 
-$('.js-sticky-nav').on('click', 'a', function(e) {
-  var hashLocation  = $(this).attr('href').split('#')[1]; // long url splitting
+$('.js-sticky-nav').on('click', 'a', function (e) {
+  var hashLocation  = $(this).attr('href').split('#')[ 1 ]; // long url splitting
   var scrollTopPos  = calculateAnchorPosition(hashLocation);
 
   //if anchor doesn't exist on the page, or calc fails
@@ -12,12 +12,12 @@ $('.js-sticky-nav').on('click', 'a', function(e) {
   if (scrollTopPos === 0) {
     return true;
   }
-  
+
   e.preventDefault();
 
   /* Firefox needs html, others need body */
   $('body,html').animate({
-    scrollTop: scrollTopPos
+    scrollTop: scrollTopPos,
   }, {
     duration: 200,
     start: function () {
@@ -37,10 +37,10 @@ $('.js-sticky-nav').on('click', 'a', function(e) {
 
       if (link.data('keypress') === true) {
         link.removeData('keypress');
-        section.attr('tabindex','0');
+        section.attr('tabindex', '0');
         section.focus();
       }
-    }
+    },
   });
 });
 
@@ -59,4 +59,4 @@ module.exports = function stickyNav (event) {
     $('body').css('paddingTop', 0);
   }
 
-}
+};
