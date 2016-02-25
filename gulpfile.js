@@ -55,7 +55,9 @@ gulp.task('scss-lint', function (done) {
   }
 
   return gulp.src('./assets/styles/**/*.scss')
-    .pipe(scsslint());
+    .pipe(scsslint({
+      config: './.scss-lint.yml',
+    }));
 
 });
 
@@ -67,7 +69,10 @@ gulp.task('eslint', function (done) {
   }
 
   return gulp.src('./assets/scripts/**/*.js')
-    .pipe(eslint());
+    .pipe(eslint({
+      configFile: './.eslintrc',
+    }))
+    .pipe(eslint.format());
 
 });
 
@@ -124,21 +129,27 @@ gulp.task('scripts', [ 'eslint' ], function () {
 });
 
 gulp.task('images', function () {
+
   gutil.log(gutil.colors.cyan('images'), 'Copying image assets');
-  return gulp.src([
-      './assets/images/**/*',
-      './node_modules/uswds/src/img/**/*'
-    ])
-    .pipe(gulp.dest('./static/assets/images'));
+  var stream = gulp.src([
+    './assets/images/**/*',
+    './node_modules/uswds/src/img/**/*',
+  ]);
+
+  return stream.pipe(gulp.dest('./static/assets/images'));
+
 });
 
 gulp.task('fonts', function () {
+
   gutil.log(gutil.colors.cyan('fonts'), 'Copying font assets');
-  return gulp.src([
-      './assets/fonts/**/*',
-      './node_modules/uswds/src/fonts/**/*'
-    ])
-    .pipe(gulp.dest('./static/assets/fonts'));
+  var stream = gulp.src([
+    './assets/fonts/**/*',
+    './node_modules/uswds/src/fonts/**/*',
+  ]);
+
+  return stream.pipe(gulp.dest('./static/assets/fonts'));
+
 });
 
 gulp.task('build', [ 'clean-all' ], function (done) {
