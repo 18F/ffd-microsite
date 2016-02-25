@@ -68,10 +68,6 @@ p {
     background-image: url('../images/houses-wide.svg');
   }
 
-  @media (max-height: 400px) {
-    background-image: none;
-  }
-
   .usa-font-lead {
     color: $color-white;
     margin-bottom: 1rem;
@@ -95,6 +91,19 @@ p {
 
     @include media($medium-screen) {
       font-size: $title-font-size;
+    }
+  }
+
+  @media (max-height: 435px) {
+    background-image: none;
+    padding-top: 3rem;
+
+    h1 {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: $h2-font-size;
     }
   }
 }
