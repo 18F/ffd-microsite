@@ -214,12 +214,13 @@ h2 {
 
 .section-footer-links {
   @include padding(2rem null);
+
   a {
-      margin-right: 1rem;
-      
-    img {
-      max-width: 3.4rem;
-    }
+    margin-right: 1rem;
+  }
+
+  img {
+    max-width: 3.4rem;
   }
 }
 
