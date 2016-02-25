@@ -74,8 +74,8 @@ p {
   padding-top: 6rem;
   text-align: center;
 
-  @media (max-height: 400px) {
-    background-image: none;
+  @media screen and (min-aspect-ratio: 10/7) {
+    background-image: url('../images/houses-wide.svg');
   }
 
   .usa-font-lead {
@@ -103,10 +103,19 @@ p {
       font-size: $title-font-size;
     }
   }
-}
 
-.usa-banner-content {
-//  max-width: 48rem;
+  @media (max-height: 435px) {
+    background-image: none;
+    padding-top: 3rem;
+
+    h1 {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: $h2-font-size;
+    }
+  }
 }
 
 .usa-section {
