@@ -64,10 +64,15 @@ p {
   padding-top: 6rem;
   text-align: center;
 
+  @media screen and (min-aspect-ratio: 10/7) {
+    background-color: pink;
+  //  background-image: url("../images/houses.svg")
+  }
+
   @media (max-height: 400px) {
     background-image: none;
   }
-
+  
   .usa-font-lead {
     color: $color-white;
     margin-bottom: 1rem;
@@ -93,10 +98,6 @@ p {
       font-size: $title-font-size;
     }
   }
-}
-
-.usa-banner-content {
-//  max-width: 48rem;
 }
 
 .usa-section {
@@ -241,3 +242,11 @@ h2 {
 .usa-no_margins {
   margin: 0;
 }
+
+
+
+
+
+
+
+
