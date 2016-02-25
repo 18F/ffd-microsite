@@ -67,7 +67,10 @@ gulp.task('eslint', function (done) {
   }
 
   return gulp.src('./assets/scripts/**/*.js')
-    .pipe(eslint());
+    .pipe(eslint({
+      configFile: './.eslintrc',
+    }))
+    .pipe(eslint.format());
 
 });
 
