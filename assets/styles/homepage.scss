@@ -14,6 +14,14 @@ p {
   font-size: 1.7rem;
 }
 
+// Below is an override of .media-link to include exclusion 
+// of any "text decoration on hover" issues.
+.media_link {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+}
+
 .usa-content {
   p {
     max-width: $text-width;
@@ -207,8 +215,11 @@ h2 {
 .section-footer-links {
   @include padding(2rem null);
 
-  img {
+  a {
     margin-right: 1rem;
+  }
+
+  img {
     max-width: 3.4rem;
   }
 }
