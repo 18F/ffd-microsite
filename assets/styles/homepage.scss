@@ -260,3 +260,10 @@ h2 {
 .usa-no_margins {
   margin: 0;
 }
+
+// Contact section extra padding so scrollspy works
+.section-end {
+  @include media ($medium-screen) {
+    padding-bottom: 23rem;
+  }
+}
