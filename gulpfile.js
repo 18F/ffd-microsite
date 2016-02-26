@@ -158,11 +158,23 @@ gulp.task('build', [ 'clean-all' ], function (done) {
   runSequence([ 'styles:homepage', 'scripts', 'images', 'fonts' ], done);
 });
 
+
 gulp.task('build:website', [ 'build' ], function (done) {
 
   gutil.log(gutil.colors.cyan('build:website'), 'Building static website via Hugo');
 
-  var hugo = spawn('hugo');
+  if (cFlags.production) {
+    gutil.log(gutil.colors.cyan('build:website'), 'Production mode: Looking for branch-specific BaseUrl variables...');
+    setBranchBaseUrl();
+  }
+
+  var hugo_args = [];
+  if (process.env.SITE_BASEURL) {
+    gutil.log(gutil.colors.cyan('build:website'), 'Using environment-specified BaseUrl: ' + process.env.SITE_BASEURL);
+    hugo_args = [ '-b', process.env.SITE_BASEURL];
+  }
+
+  var hugo = spawn('hugo', hugo_args);
 
   hugo.stdout.on('data', function (data) {
     gutil.log(gutil.colors.blue('build:website'), '\n' + data);
@@ -225,4 +237,31 @@ function printPackageInfo () {
   gutil.log(gutil.colors.blue(' \\ \\_\\  \\ \\_\\  \\ \\____- '));
   gutil.log(gutil.colors.white('  \\/_/   \\/_/   \\/____/ '));
   gutil.log();
+}
+
+function setBranchBaseUrl() {
+  if (process.env.SITE_BASEURL) {
+    gutil.log(gutil.colors.yellow('set-baseurl'), "Found pre-set SITE_BASEURL: " + process.env.SITE_BASEURL);
+    gutil.log(gutil.colors.yellow('set-baseurl'), "(If you see this in a Travis log, things are happening in the wrong order.");
+  } else
+    if (process.env.TRAVIS_BRANCH == "master" &&
+        checkBranchBaseUrl('master', 'production', 'SITE_BASEURL_PRODUCTION')) {
+      process.env.SITE_BASEURL = process.env.SITE_BASEURL_PRODUCTION;
+    } else
+    if (process.env.TRAVIS_BRANCH == "staging" &&
+        checkBranchBaseUrl('staging', 'staging', 'SITE_BASEURL_STAGING')) {
+      process.env.SITE_BASEURL = process.env.SITE_BASEURL_STAGING;
+    } else {
+    gutil.log(gutil.colors.yellow('set-baseurl'), 'No environmental config found; using BaseUrl from config file.');
+  }
+}
+
+function checkBranchBaseUrl(branch, environmentName, baseUrlVarName) {
+  if (process.env[baseUrlVarName]) {
+    gutil.log(gutil.colors.cyan('set-baseurl'), 'Using '+environmentName+' site BaseUrl: ' + process.env[baseUrlVarName]);
+    return true;
+  } else {
+    gutil.log(gutil.colors.red('set-baseurl'), 'ERROR: '+environmentName+' build ('+branch+' branch) lacking a '+baseUrlVarName+' env var. Check the Travis configuration?');
+    process.exit(1);
+  }
 }
