@@ -9,7 +9,7 @@ install:
 script:
 - gulp
 - npm test
-- npm build
+- gulp production build:website
 env:
   - SITE_BASEURL_PRODUCTION="https://labs.usa.gov/" SITE_BASEURL_STAGING="https://ffd-microsite-staging.apps.cloud.gov/"
 deploy:
