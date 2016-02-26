@@ -2,5 +2,6 @@
 memory: 64MB
 applications:
 - name: ffd-microsite
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
   env:
     FORCE_HTTPS: true

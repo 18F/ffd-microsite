@@ -14,7 +14,7 @@ p {
   font-size: 1.7rem;
 }
 
-// Below is an override of .media-link to include exclusion 
+// Below is an override of .media-link to include exclusion
 // of any "text decoration on hover" issues.
 .media_link {
   display: inline-block;
@@ -29,6 +29,10 @@ p {
 }
 
 .nav-horizontal {
+  // Force iOS 9+ to transition to sticky on scroll.
+  --webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
   // scss-lint:disable SelectorDepth
   background-color: $color-gray-lightest;
   text-align: center;
@@ -259,4 +263,11 @@ h2 {
 
 .usa-no_margins {
   margin: 0;
+}
+
+// Contact section extra padding so scrollspy works
+.section-end {
+  @include media ($medium-screen) {
+    padding-bottom: 23rem;
+  }
 }

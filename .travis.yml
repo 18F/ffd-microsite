@@ -9,14 +9,27 @@ install:
 script:
 - gulp
 - npm test
-- npm build
+- gulp production build:website
+env:
+  - SITE_BASEURL_PRODUCTION="https://labs.usa.gov/" SITE_BASEURL_STAGING="https://ffd-microsite-staging.apps.cloud.gov/"
 deploy:
-  provider: cloudfoundry
-  api: https://api.cloud.gov
-  username: jeremy.grahame@gsa.gov
-  password:
-    secure: gonAoM9BOE61HGxp6ezEQkoFzK6VcnWHStTsmmmrEUR3BAmnHAB98hUKL1/ZPmEEqyc4g9AxYbGOdVY06ecfcFgejYJ1bSZyMxAAshzYdj12nnN5rTf9+Oi4PRJpkduiFLzw5DTUse/y3ESI3GWPgHrA/8hOd+egacw92gQqYk4pNL5VnCF5xSUOwZoFV8MM3XJ2xY/jUxSJvA9pinbhddmpAHo5WYITFVmV7MXo14u0YHBLJgZ6zS/cIkVJfdcP9vLX3Q/5niRGpLdHIuQ5zbu2iGf8K7R9WQb+u1kAD8piLDxldmQsdS1UP9itrnyZiQJ4vmO9mWoOI61eyRkInpIV1wMTE3f8i7NAKgXDiNggK+zKqixJKAIaT0BXRcV9y2MZrWwQGz8hW3H7dKu0l44Byy1lmrJZZ6ZVzA+d1wpASWka/r37ziUE0D6BBCyrUSO3aETi9/qU4HUVKBFBBTn/UJbYoqH1LYk1syxAbltawEOmybpuZfXtTTtlgfCPEt6B2M3Wid7n2eLLy3wonFmUTtseCWLuyqjIq4y6edO3VZT/neg0RWV+I4IuiFTXuz7T3khWfGcLaQmUFM+iR6v4PHncioUjlCbKWu+zdXdLhxe+Gc1y2Z5AJ1jpSrMANftleJn/tw1TCcSFaH/C/LX8IiqJFY08Pinl1So3X3Q=
-  organization: gsa-ffd
-  space: microsite-staging
-  on:
-    repo: 18F/ffd-microsite
+  - provider: cloudfoundry
+    api: https://api.cloud.gov
+    username: gsa-ffd_deployer
+    password:
+      secure: "vRqNrRxE50we0m2i9KisWEZPxcbPfctsBC1gFYq6K38RbqoBYSzZeImRKaI66mCSij4xBM2dL/HVmiahzSPmG0CHHW45TL3T9bf00xb6fWuAofXVQRdZm704+exvEo4BxobUSHgWHcZ07RWWx51QqszlAGiR0PFTe67oAhT8ieMTmKlpgYUiFkex/qceRtv6OeAqZ+Bemc7LGyV40MkGPqSAjvDm97xJc4rrvwnZUUmFAxq/bIGmxi2OShlUFB/kvshcKb0bcPG8fRiwTZQY5UW+qVd9Gz84bcGaEf3fAV0EHQWmiSUEXiNuwsg6IpQXX1RtXMvDprC8RTlNvVZM34VWJz54FDWcAjv9HeEv4TGDCsG54fFepPYmyEVeUny2qayJ5Jp1jJtt8bGvksXOb+7jUhFf2GqliVtRkjDtI/UxL0Rb4PSJhW9qng0I7raBVuwhoY57kgKbhPoqk5wk5JZ+luGAZSuQ686RnLE5E60w2W0+MxSSUKKFXUN3e96NmlIwuyp0vpkzpc17vpunTSO9StnvBxJJfKCGrjZiH9C9ui/IvwiCB+ILX0TUKJ1qbWib7I238SOiXCADTsb7FqC+C99j+zw4PSJ3gCTvoctKQwa79FAz5Q+m4VtlLxfOitYrEa5U8Jr7u/xfliBjB0J/EAYaFgsDbFFfpF5K/gI="
+    organization: gsa-ffd
+    space: microsite-staging
+    on:
+      repo: 18F/ffd-microsite
+      branch: staging
+  - provider: cloudfoundry
+    api: https://api.cloud.gov
+    username: gsa-ffd_deployer
+    password:
+      secure: "vRqNrRxE50we0m2i9KisWEZPxcbPfctsBC1gFYq6K38RbqoBYSzZeImRKaI66mCSij4xBM2dL/HVmiahzSPmG0CHHW45TL3T9bf00xb6fWuAofXVQRdZm704+exvEo4BxobUSHgWHcZ07RWWx51QqszlAGiR0PFTe67oAhT8ieMTmKlpgYUiFkex/qceRtv6OeAqZ+Bemc7LGyV40MkGPqSAjvDm97xJc4rrvwnZUUmFAxq/bIGmxi2OShlUFB/kvshcKb0bcPG8fRiwTZQY5UW+qVd9Gz84bcGaEf3fAV0EHQWmiSUEXiNuwsg6IpQXX1RtXMvDprC8RTlNvVZM34VWJz54FDWcAjv9HeEv4TGDCsG54fFepPYmyEVeUny2qayJ5Jp1jJtt8bGvksXOb+7jUhFf2GqliVtRkjDtI/UxL0Rb4PSJhW9qng0I7raBVuwhoY57kgKbhPoqk5wk5JZ+luGAZSuQ686RnLE5E60w2W0+MxSSUKKFXUN3e96NmlIwuyp0vpkzpc17vpunTSO9StnvBxJJfKCGrjZiH9C9ui/IvwiCB+ILX0TUKJ1qbWib7I238SOiXCADTsb7FqC+C99j+zw4PSJ3gCTvoctKQwa79FAz5Q+m4VtlLxfOitYrEa5U8Jr7u/xfliBjB0J/EAYaFgsDbFFfpF5K/gI="
+    organization: gsa-ffd
+    space: microsite-production
+    on:
+      repo: 18F/ffd-microsite
+      branch: master
