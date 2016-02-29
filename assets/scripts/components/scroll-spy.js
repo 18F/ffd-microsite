@@ -23,7 +23,7 @@ function calculateSections ( $links ) {
 
 module.exports = function scrollSpy () {
 
-  var $links = $('.js-scroll-spy').find('a[href^="#"]');
+  var $links = $('#js-scroll-spy').find('a[href^="#"]');
   var sections = calculateSections($links);
 
   var scrollY = $(window).scrollTop();
