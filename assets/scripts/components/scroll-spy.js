@@ -11,7 +11,7 @@ function calculateSections ( $links ) {
     var $link = $(el);
     var $section = $($link.attr('href'));
     var topOffset = $section.position().top - originalNavigationHeight;
-    var bottomOffset = $section.height() + topOffset;
+    var bottomOffset = $section.outerHeight(true) + topOffset;
     return {
       $link: $link,
       $el: $section,
@@ -34,8 +34,8 @@ module.exports = function scrollSpy () {
 
   sections.forEach(function (section, index) {
 
-    if (section.topOffset <= scrollY &&
-        section.bottomOffset >= scrollY) {
+    if (section.topOffset < scrollY &&
+        section.bottomOffset > scrollY) {
       section.$link.addClass('is-active');
     }
 

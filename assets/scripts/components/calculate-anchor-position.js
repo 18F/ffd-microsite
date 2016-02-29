@@ -1,7 +1,8 @@
 var $ = require('jquery');
 
 var $nav = $('.js-sticky-nav');
-var originalNavigationHeight = $nav.outerHeight(true);
+/* README: Subtracting one pixel to prevent Firefox bug */
+var originalNavigationHeight = $nav.height() - 1;
 
 /* Calculates what scrollTop should be in order to
  * show an anchor properly under the header
@@ -9,19 +10,11 @@ var originalNavigationHeight = $nav.outerHeight(true);
  */
 module.exports = function calculateAnchorPosition (hash) {
   var anchor        = $('#' + hash);
-  var topOffset     = 0;
-  var navPadding    = parseInt($('.js-sticky-nav').css('padding-top'), 10);
-  var anchorPadding = parseInt(anchor.css('padding-top'), 10);
 
   if (anchor.length === 0) {
-    return topOffset;
+    return 0;
   }
 
-  //start with the height of the header
-  topOffset = originalNavigationHeight + parseInt(anchor.css('padding-top'), 10);
-  //subtract the diffence in padding between nav top and anchor
-  topOffset = topOffset - (anchorPadding - navPadding);
-
   //anchor should now align with first item inside nav
-  return Math.ceil(anchor.offset().top - topOffset);
+  return Math.ceil(anchor.offset().top - originalNavigationHeight);
 };
