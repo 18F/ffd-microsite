@@ -16,12 +16,12 @@ module.exports = function calculateAnchorPosition (hash) {
   if (anchor.length === 0) {
     return topOffset;
   }
-  
+
   //start with the height of the header
   topOffset = originalNavigationHeight + parseInt(anchor.css('padding-top'), 10);
   //subtract the diffence in padding between nav top and anchor
   topOffset = topOffset - (anchorPadding - navPadding);
-  
+
   //anchor should now align with first item inside nav
-  return anchor.offset().top - topOffset;
+  return Math.ceil(anchor.offset().top - topOffset);
 };
