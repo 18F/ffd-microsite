@@ -15,5 +15,5 @@ function scrollHandler (event) {
 $(window).on('scroll', scrollHandler);
 $(window).on('resize', resizeHandler);
 
-stickyNav(event);
+stickyNav();
 scrollSpy();
