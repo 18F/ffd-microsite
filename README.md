@@ -108,13 +108,21 @@ affected by them.
 ## Deployment
 
 The microsite is deployed on [cloud.gov] [cg-homepage]. To read the `cloud.gov`
-documentation, [click here] [cg-docs]. The following documentation assumes you
-have the `cf` binary installed on your machine. [Please read _Setting up the
-command line_] [cg-docs-cli-install].
+documentation, [click here] [cg-docs]. The documentation below makes the
+following assumptions.
+
+- Assuming you have the `cf` binary installed on your machine and within your
+  `$PATH`.
+    - [Please read _Setting up the command line_] [cg-docs-cli-install] for more
+      information.
+- Assuming that you have a `cloud.gov` account.
+    - [Please read _Setting up your account_] [cg-docs-cg-account] for more
+      information.
 
 [cg-homepage]: https://cloud.gov "Cloud.gov: Homepage"
 [cg-docs]: https://docs.cloud.gov "Cloud.gov: Documentation"
 [cg-docs-cli-install]: https://docs.cloud.gov/getting-started/setup/ "Cloud.gov: Setting up the command line"
+[cg-docs-cg-account]: https://docs.cloud.gov/getting-started/accounts/ "Cloud.gov: Setting up your account"
 
 ### Automated deployment
 
