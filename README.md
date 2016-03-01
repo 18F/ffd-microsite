@@ -95,8 +95,9 @@ npm start
 These flags are 100% optional and can be omitted from any tasks that are
 affected by them.
 
-- `no-test` This flag disables linters and tests for assets
-- `production` This flag enables minification and compression of assets
+- `no-test` This flag disables linters and tests for all assets.
+- `production` This flag enables minification and compression of all assets in
+  prep for a production environment.
 
 ## Deployment
 
