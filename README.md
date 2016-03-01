@@ -47,7 +47,7 @@ In order to build the assets for the microsite, you will need to install the
 npm install --global gulp-cli
 ```
 
-### Installing Scss Lint
+### Installing SCSS-Lint
 
 The Sass file linter uses the Ruby gem `scss_lint`. This gem must be installed
 on your machine in order to run any tasks that depend on the `scss-lint` binary.
