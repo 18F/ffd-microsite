@@ -135,9 +135,11 @@ deploying to `cloud.gov` can be found [here] [cg-deploy-hw] and [here] [cg-deplo
 [cg-deploy-hw]: https://docs.cloud.gov/getting-started/your-first-deploy/ "Cloud.gov: Your First Deploy"
 [cg-deploy-ss]: https://docs.cloud.gov/apps/static/ "Cloud.gov: Deploying Static Sites"
 
-> Manual deployments aren't necessary as all updates should go through Travis-CI.
+> Manual deployments are not necessary as all deployments _should_ go through
+Travis-CI.
 
-To check with space you're targeting using the `cf` command-line tool.
+To check which space you're targeting using the `cf` command-line tool, type the
+following in your terminal.
 
 ```sh
 cf target
@@ -146,7 +148,7 @@ cf target
 #### Building the microsite locally
 
 Building the microsite locally can be done with the same command that runs in
-Travis-CI.
+Travis-CI. Type the following in your terminal.
 
 ```sh
 npm run build
@@ -155,7 +157,7 @@ npm run build
 #### Pushing to a target
 
 Once the microsite has been built locally by running the above command, you can
-push your changes up to the targeted space.
+push your changes up to the targeted space. Type the following in your terminal.
 
 ```sh
 cf push
