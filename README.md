@@ -5,6 +5,12 @@
 This repository contains the files and infrastructure to run the Federal Front
 Door Microsite.
 
+| Section | Description |
+| - | - |
+| [Installation](#installation) | Installing the project locally. |
+| [Development](#development)   | Development workflow using `gulp`. |
+| [Deployment](#deployment)     | Automated and Manual deployment information using `cloud.gov`. |
+
 ## Installation
 
 The development for the microsite has the following dependencies
