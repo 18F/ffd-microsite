@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var calculateAnchorPosition = require('./calculate-anchor-position');
+var scrollSpy = require('./scroll-spy');
 var $nav = $('.js-sticky-nav');
 var STICKY_CLASS_NAME = 'is-sticky-nav';
 
@@ -39,6 +40,7 @@ $('.js-sticky-nav').on('click', 'a', function (e) {
         link.removeData('keypress');
         section.attr('tabindex', '0');
         section.focus();
+        scrollSpy();
       }
     },
   });
