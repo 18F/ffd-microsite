@@ -1,0 +1,21 @@
+---
+project: "Labs.USA.gov"
+name: ffd
+github:
+- 18F/analytics.usa.gov
+- 18F/analytics-reporter
+description: A lightweight dashboard that shows web traffic across the .gov domain.  
+partners:
+- General Services Administration
+stage: alpha
+milestones:
+- 'February 2016: Labs.USA.gov launches'
+contact:
+- federalfrontdoor@gsa.gov
+stack: hugo, gulp, nodejs, ruby
+stack: jekyll, bourbon, neat, d3, node, analytics-reporter
+team: maya, yoz, julia, noah, roger
+licenses:
+  labs.usa.gov: Public Domain (CC0)
+links:
+- https://labs.usa.gov
