@@ -14,7 +14,7 @@ contact:
 - federalfrontdoor@gsa.gov
 stack: hugo, gulp, nodejs, ruby
 stack: jekyll, bourbon, neat, d3, node, analytics-reporter
-team: maya, yoz, julia, noah, roger
+team: maya, yoz, julia, noah, roger, erica, kate
 licenses:
   labs.usa.gov: Public Domain (CC0)
 links:
