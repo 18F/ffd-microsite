@@ -120,11 +120,6 @@ own [`staging`] [ffd-staging] and [`production`] [ffd-production] URLs.
 [ffd-staging]: https://ffd-microsite-staging.apps.cloud.gov "Federal Front Door: Staging"
 [ffd-production]: https://labs.usa.gov "Federal Front Door: Production"
 
-All new Pull Requests must target this repository's `staging` branch. You can
-use [this link to ensure the base branch is set correctly] [gh-base-branch].
-
-[gh-base-branch]: https://github.com/18F/ffd-microsite/compare/staging...staging "Github: Submit a new Pull Request"
-
 ### Manual deployment
 
 Using the `cf` command-line tool, you can run a manual deployment to either
