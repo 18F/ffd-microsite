@@ -5,6 +5,12 @@
 This repository contains the files and infrastructure to run the Federal Front
 Door Microsite.
 
+ Section | Description
+ ------- | -----------
+ [Installation](#installation) | Installing the project locally.
+ [Development](#development)   | Development workflow using `gulp`.
+ [Deployment](#deployment)     | Automated and Manual deployment information using `cloud.gov`.
+
 ## Installation
 
 The development for the microsite has the following dependencies
@@ -56,7 +62,7 @@ on your machine in order to run any tasks that depend on the `scss-lint` binary.
 gem install scss_lint
 ```
 
-### Development
+## Development
 
 Once `gulp` is installed globally, navigate to this directory in your Terminal
 and tell `npm` to bring in the asset-pipeline's dependencies.
@@ -90,10 +96,78 @@ To start the local webserver and have gulp watch for changes:
 npm start
 ```
 
-#### Descriptions for optional `gulp [ flags ]` task prefixes
+### Descriptions for optional `gulp [ flags ]` task prefixes
 
 These flags are 100% optional and can be omitted from any tasks that are
 affected by them.
 
-- `no-test` This flag disables linters and tests for assets
-- `production` This flag enables minification and compression of assets
+- `no-test` This flag disables linters and tests for all assets.
+- `production` This flag enables minification and compression of all assets in
+  prep for a production environment.
+
+## Deployment
+
+The microsite is deployed on [cloud.gov] [cg-homepage]. To read the `cloud.gov`
+documentation, [click here] [cg-docs]. The documentation below makes the
+following assumptions.
+
+- Assuming you have the `cf` binary installed on your machine and within your
+  `$PATH`.
+    - [Please read _Setting up the command line_] [cg-docs-cli-install] for more
+      information.
+- Assuming that you have a `cloud.gov` account.
+    - [Please read _Setting up your account_] [cg-docs-cg-account] for more
+      information.
+
+[cg-homepage]: https://cloud.gov "Cloud.gov: Homepage"
+[cg-docs]: https://docs.cloud.gov "Cloud.gov: Documentation"
+[cg-docs-cli-install]: https://docs.cloud.gov/getting-started/setup/ "Cloud.gov: Setting up the command line"
+[cg-docs-cg-account]: https://docs.cloud.gov/getting-started/accounts/ "Cloud.gov: Setting up your account"
+
+### Automated deployment
+
+This project uses [Travis-CI] [tci-homepage] for continuous deployment. Our
+current process deploys our `staging` branch and our `master` branch to their
+own [`staging`] [ffd-staging] and [`production`] [ffd-production] URLs.
+
+[tci-homepage]: https://travis-ci.org "Travis-CI: Homepage"
+[ffd-staging]: https://ffd-microsite-staging.apps.cloud.gov "Federal Front Door: Staging"
+[ffd-production]: https://labs.usa.gov "Federal Front Door: Production"
+
+### Manual deployment
+
+Using the `cf` command-line tool, you can run a manual deployment to either
+`staging` or `production` by targeting the corresponding organization / space
+and as long as you have access to `cf push` the target. More information on
+deploying to `cloud.gov` can be found [here] [cg-deploy-hw] and [here] [cg-deploy-ss].
+
+[cg-deploy-hw]: https://docs.cloud.gov/getting-started/your-first-deploy/ "Cloud.gov: Your First Deploy"
+[cg-deploy-ss]: https://docs.cloud.gov/apps/static/ "Cloud.gov: Deploying Static Sites"
+
+> Manual deployments are not necessary as all deployments _should_ go through
+Travis-CI.
+
+To check which space you're targeting using the `cf` command-line tool, type the
+following in your terminal.
+
+```sh
+cf target
+```
+
+#### Building the microsite locally
+
+Building the microsite locally can be done with the same command that runs in
+Travis-CI. Type the following in your terminal.
+
+```sh
+npm run build
+```
+
+#### Pushing to a target
+
+Once the microsite has been built locally by running the above command, you can
+push your changes up to the targeted space. Type the following in your terminal.
+
+```sh
+cf push
+```
