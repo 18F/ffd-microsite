@@ -2,6 +2,10 @@ language: go
 go:
 - 1.5.1
 - tip
+cache:
+  directories:
+    - node_modules
+    - $HOME/gopath/src
 install:
 - go get -u -v github.com/spf13/hugo
 - gem install scss_lint
