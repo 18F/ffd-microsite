@@ -161,7 +161,8 @@ gulp.task('build', [ 'clean-all' ], function (done) {
 
 gulp.task('build:website', [ 'build' ], function (done) {
 
-  gutil.log(gutil.colors.cyan('build:website'), 'Building static website via Hugo');
+  gutil.log(gutil.colors.cyan('build:website'), 'BREAK THE BUILD');
+  process.exit(1);
 
   if (cFlags.production) {
     gutil.log(gutil.colors.cyan('build:website'), 'Production mode: Looking for branch-specific BaseUrl variables...');
