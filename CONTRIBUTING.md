@@ -8,16 +8,16 @@ contributors do the same.
 
  Section | Description
  ------- | -----------
- [Opening an Issue](#opening-an-issue) | Information on contributing Issues
- [Submitting Pull Requests](#submitting-pull-requests) | Information on contributing Pull Requests
- [Deployment Cycle](#deployment-cycle) | Information on the deployment cycle
+ [Opening an issue](#opening-an-issue) | Information on contributing issues
+ [Submitting pull requests](#submitting-pull-requests) | Information on contributing pull requests
+ [Deployment cycle](#deployment-cycle) | Information on the deployment cycle
 
-## Opening an Issue
+## Opening an issue
 
-Before submitting a new Issue, please consider the following guidelines:
+Before submitting a new issue, please consider the following guidelines:
 
 - Search [this repository for open or closed Issues] [gh-search-issue] that may
-  relate to your Pull Request.
+  relate to your pull request.
 
 To help us get a better understanding of the issue you are submitting, please
 use the following outline (as inspired by the following
@@ -28,12 +28,12 @@ use the following outline (as inspired by the following
 [gh-search-issue]: https://github.com/18F/ffd-microsite/issues?utf8=✓&q=is%3Aissue "Github: Search All Issues"
 [ffd-issue-template]: .github/ISSUE_TEMPLATE.md "Federal Front Door: Issue Template"
 
-## Submitting Pull Requests
+## Submitting pull requests
 
-Before submitting your Pull Request, please consider the following guidelines:
+Before submitting your pull request, please consider the following guidelines:
 
 - Search [this repository for open or closed PRs] [gh-search-pr] that may relate
-  to your Pull Request.
+  to your pull request.
 - Make your changes in a new git branch from the remote `staging` branch.
   ```sh
   git fetch --all
@@ -51,11 +51,11 @@ locally_] [ffd-build-local].
 All new Pull Requests must target this repository's `staging` branch. You can
 use [this link to ensure the base branch is set correctly] [gh-base-branch].
 
-[gh-search-pr]: https://github.com/18F/ffd-microsite/pulls?utf8=✓&q=is%3Apr "Github: Search All Pull Requests"
-[gh-base-branch]: https://github.com/18F/ffd-microsite/compare/staging...staging "Github: Submit a new Pull Request"
+[gh-search-pr]: https://github.com/18F/ffd-microsite/pulls?utf8=✓&q=is%3Apr "Github: Search All pull requests"
+[gh-base-branch]: https://github.com/18F/ffd-microsite/compare/staging...staging "Github: Submit a new pull request"
 [ffd-build-local]: README.md#building-the-microsite-locally "Federal Front Door: Building the microsite locally"
 
-## Deployment Cycle
+## Deployment cycle
 
 The deployment cycle for pushing to the production site is every __[x days,
 weeks, etc.]__. A core team member will open a pull request from `staging`

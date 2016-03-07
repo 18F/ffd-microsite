@@ -9,12 +9,12 @@ considerations. This can be short and sweet.*
 *Describe the desired behavior and what would deem this issue, bug, or feature
 complete.*
 
-**To Do**
+**To do**
 - [ ] Steps
 - [ ] To
-- [ ] Complete/Fix
+- [ ] Complete/fix
 
-**Additional Info**
+**Additional info**
 
 *Include any images, steps to recreate, notes, emojis, or anything else that
 seems pertinent.*
