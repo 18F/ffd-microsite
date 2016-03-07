@@ -24,7 +24,7 @@ To help us get a better understanding of the issue you are submitting, please
 use the following outline (as inspired by the following
 [Girl Develop It issue template](https://github.com/girldevelopit/gdi-new-site/issues/83))
 
-[View the ISSUE_TEMPLATE.md in this repository] [ffd-issue-template].
+[View the `ISSUE_TEMPLATE.md` file in this repository] [ffd-issue-template].
 
 [gh-search-issue]: https://github.com/18F/ffd-microsite/issues?utf8=✓&q=is%3Aissue "Github: Search All Issues"
 [ffd-issue-template]: .github/ISSUE_TEMPLATE.md "Federal Front Door: Issue Template"
@@ -58,10 +58,10 @@ use [this link to ensure the base branch is set correctly] [gh-base-branch].
 
 ## Deployment cycle
 
-The deployment cycle for pushing to the production site is every __[x days,
-weeks, etc.]__. A core team member will open a pull request from `staging`
-against `master` for a final sanity check. Once we merge the code into `master`,
-it will be live and ready for viewing [at our `production` URL] [ffd-production].
+Deployments to production occurs as needed. A core team member will open a pull
+request from `staging` against `master` for a final sanity check. Once we merge
+the code into `master`, it will be live and ready for viewing [at our `production`
+URL] [ffd-production].
 
 [ffd-production]: https://labs.usa.gov "Federal Front Door: Production"
 
