@@ -8,6 +8,7 @@ contributors do the same.
 
  Section | Description
  ------- | -----------
+ [README](README.md) | Information about the project
  [Opening an issue](#opening-an-issue) | Information on contributing issues
  [Submitting pull requests](#submitting-pull-requests) | Information on contributing pull requests
  [Deployment cycle](#deployment-cycle) | Information on the deployment cycle
