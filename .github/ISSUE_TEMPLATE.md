@@ -1,7 +1,7 @@
 **Description**
 
-*Include a high-level description of the feature or error here including steps
-of how to recreate it if applicable. Include any benefits, challenges, or
+*Include a high-level description of the feature or error here, including steps
+for recreating it, if applicable. Include any benefits, challenges, or
 considerations. This can be short and sweet.*
 
 **Ask**
@@ -16,5 +16,6 @@ complete.*
 
 **Additional Info**
 
-*Include any images, steps to recreate, notes, emojis, or whatever.*
+*Include any images, steps to recreate, notes, emojis, or anything else that
+seems pertinent.*
 
