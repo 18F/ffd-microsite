@@ -17,7 +17,7 @@ contributors do the same.
 
 Before submitting a new issue, please consider the following guidelines:
 
-- Search [this repository for open or closed Issues] [gh-search-issue] that may
+- Search [this repository for open or closed issues] [gh-search-issue] that may
   relate to your pull request.
 
 To help us get a better understanding of the issue you are submitting, please
@@ -49,7 +49,7 @@ locally_] [ffd-build-local].
 - Ensure that there are no errors or warnings.
 - Commit your changes.
 
-All new Pull Requests must target this repository's `staging` branch. You can
+All new pull requests must target this repository's `staging` branch. You can
 use [this link to ensure the base branch is set correctly] [gh-base-branch].
 
 [gh-search-pr]: https://github.com/18F/ffd-microsite/pulls?utf8=✓&q=is%3Apr "Github: Search All pull requests"
