@@ -90,12 +90,12 @@
         </div>
         <div class="usa-width-two-thirds">
           <h3 class="usa-font-lead">All our work is guided by user research — structured conversations with people from varied populations. This research report highlights our lines of inquiry, provides detailed descriptions of what we learned, and raises questions that warrant further study.</h3>
-          <a class="usa-button usa-button-secondary" href="{{ .Site.BaseURL }}files/FFD_ResearchReport_0316.pdf" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of report');">Download the report (PDF)</a>
-          <span class="usa-text-small">Updated 2/1/16</span>
+          <a class="usa-button usa-button-secondary" href="{{ .Site.BaseURL }}{{ .Site.Data.ResearchReport.File }}" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of report');">Download the report (PDF)</a>
+          <span class="usa-text-small">Updated {{ .Site.Data.ResearchReport.Date }}</span>
           <h3>Methodology supplement</h3>
           <p>Want all the specifics of the research we conducted? Download our research methodologies supplement for information on our interview groups, recruiting scripts, interview scripts, and more.</p>
-          <a class="usa-button usa-button-outline" href="{{ .Site.BaseURL }}files/FFD_Research_Methodology_v11.pdf" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of supplement report');">Download the supplement (PDF)</a>
-          <span class="usa-text-small">Updated 2/1/16</span>
+          <a class="usa-button usa-button-outline" href="{{ .Site.BaseURL }}{{ .Site.Data.ResearchMethodology.File }}" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of supplement report');">Download the supplement (PDF)</a>
+          <span class="usa-text-small">Updated {{ .Site.Data.ResearchMethodology.Date }}</span>
         </div>
       </div>
     </section>
