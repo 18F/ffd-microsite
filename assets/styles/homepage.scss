@@ -58,6 +58,10 @@ p {
       @include padding(null 2.7rem);
       font-size: $base-font-size;
     }
+
+    &.is-active {
+      color: $color-primary;
+    }
   }
 }
 

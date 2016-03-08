@@ -28,7 +28,7 @@
         </div>
       </section>
       <nav class="nav-horizontal js-sticky-nav">
-        <ul>
+        <ul id="js-scroll-spy">
           <li><a href="#overview">Overview</a></li>
           <li><a href="#research-report">Research report</a></li>
           <li><a href="#contact-us">Contact us</a></li>
@@ -90,12 +90,12 @@
         </div>
         <div class="usa-width-two-thirds">
           <h3 class="usa-font-lead">All our work is guided by user research — structured conversations with people from varied populations. This research report highlights our lines of inquiry, provides detailed descriptions of what we learned, and raises questions that warrant further study.</h3>
-          <a class="usa-button usa-button-secondary" href="{{ .Site.BaseURL }}files/FFD_ResearchReport_0216.pdf" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of report');">Download the report (PDF)</a>
-          <span class="usa-text-small">Updated 2/1/16</span>
+          <a class="usa-button usa-button-secondary" href="{{ .Site.BaseURL }}{{ .Site.Data.ResearchReport.File }}" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of report');">Download the report (PDF)</a>
+          <span class="usa-text-small">Updated {{ .Site.Data.ResearchReport.Date }}</span>
           <h3>Methodology supplement</h3>
           <p>Want all the specifics of the research we conducted? Download our research methodologies supplement for information on our interview groups, recruiting scripts, interview scripts, and more.</p>
-          <a class="usa-button usa-button-outline" href="{{ .Site.BaseURL }}files/FFD_Research_Methodology_v11.pdf" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of supplement report');">Download the supplement (PDF)</a>
-          <span class="usa-text-small">Updated 2/1/16</span>
+          <a class="usa-button usa-button-outline" href="{{ .Site.BaseURL }}{{ .Site.Data.ResearchMethodology.File }}" onclick="ga('send', 'event', 'Downloaded PDF report', 'Clicked download of supplement report');">Download the supplement (PDF)</a>
+          <span class="usa-text-small">Updated {{ .Site.Data.ResearchMethodology.Date }}</span>
         </div>
       </div>
     </section>
@@ -128,7 +128,7 @@
       <!--Footer links BEGIN -->
       <section class="usa-section section-footer-links">
         <div class="usa-grid">
-            <a class="media_link" href="https://usa.gov/">
+            <a class="media_link" href="https://www.usa.gov/explore/">
               <img src="{{ .Site.BaseURL }}assets/images/usagov-logo.png" alt="USA.gov logo">
             </a>
             <a class="media_link" href="https://18f.gsa.gov/">
