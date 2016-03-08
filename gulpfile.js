@@ -96,11 +96,17 @@ gulp.task('styles:homepage', [ 'scss-lint' ], function () {
         '\n',
         error.messageFormatted
       );
+
+      if (cFlags.production) {
+        process.exit(1);
+      }
+
       this.emit('end');
     })
     .pipe(gulp.dest('./static/assets/styles'));
 
   return stream;
+
 
 });
 
