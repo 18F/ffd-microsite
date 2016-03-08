@@ -7,9 +7,10 @@ Door Microsite.
 
  Section | Description
  ------- | -----------
- [Installation](#installation) | Installing the project locally.
- [Development](#development)   | Development workflow using `gulp`.
- [Deployment](#deployment)     | Automated and Manual deployment information using `cloud.gov`.
+ [Installation](#installation)   | Installing the project locally.
+ [Development](#development)     | Development workflow using `gulp`.
+ [Deployment](#deployment)       | Automated and Manual deployment information using `cloud.gov`.
+ [Contributing](CONTRIBUTING.md) | Contributing to the project
 
 ## Installation
 
