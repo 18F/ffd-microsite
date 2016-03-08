@@ -4,7 +4,6 @@
   "description": "This repository contains the files and infrastructure to run the Federal Front Door Microsite.",
   "private": true,
   "main": "gulpfile.js",
-  "dependencies": {},
   "devDependencies": {
     "browserify": "^13.0.0",
     "del": "^2.2.0",
@@ -18,7 +17,7 @@
     "gulp-util": "^3.0.7",
     "jquery": "^1.12.1",
     "run-sequence": "^1.1.5",
-    "uswds": "git+https://github.com/18F/web-design-standards.git#18f-pages-staging",
+    "uswds": "^0.8.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
