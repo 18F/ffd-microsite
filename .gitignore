@@ -13,6 +13,7 @@ Thumbs.db
 
 # Node modules
 node_modules/
+npm-debug.log
 
 # Compiled or Bundled Static Assets
 /static/assets/
