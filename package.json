@@ -22,8 +22,9 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
+    "postinstall": "gem install html-proofer",
     "start": "gulp && gulp clean-all && gulp website",
-    "build": "gulp production build:website",
+    "build": "gulp production build:website && htmlproofer ./public",
     "test": "gulp scss-lint eslint"
   },
   "repository": {
