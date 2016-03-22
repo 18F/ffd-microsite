@@ -7,9 +7,8 @@ install:
 - gem install scss_lint
 - npm install
 script:
-- gulp
 - npm test
-- gulp production build:website
+- npm run build
 env:
   - SITE_BASEURL_PRODUCTION="https://labs.usa.gov/" SITE_BASEURL_STAGING="https://ffd-microsite-staging.apps.cloud.gov/"
 deploy:
