@@ -24,7 +24,7 @@
   "scripts": {
     "postinstall": "gem install html-proofer",
     "start": "gulp && gulp clean-all && gulp website",
-    "build": "gulp production build:website && htmlproofer ./public",
+    "build": "gulp production build:website && htmlproofer ./public --disable-external",
     "test": "gulp scss-lint eslint"
   },
   "repository": {
