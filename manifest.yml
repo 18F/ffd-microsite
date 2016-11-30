@@ -1,5 +1,6 @@
 ---
 memory: 64MB
+path: public
 applications:
 - name: ffd-microsite
   buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
