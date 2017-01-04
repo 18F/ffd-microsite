@@ -11,7 +11,7 @@ script:
 - npm test
 - gulp production build:website
 env:
-  - SITE_BASEURL_PRODUCTION="https://labs.usa.gov/" SITE_BASEURL_STAGING="https://ffd-microsite-staging.apps.cloud.gov/"
+  - SITE_BASEURL_PRODUCTION="https://ffd-microsite-production" SITE_BASEURL_STAGING="https://ffd-microsite-staging.apps.cloud.gov/"
 deploy:
   - provider: cloudfoundry
     api: https://api.cloud.gov
