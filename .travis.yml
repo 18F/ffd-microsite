@@ -12,7 +12,8 @@ script:
 - npm test
 - npm run build
 env:
-  - SITE_BASEURL_PRODUCTION="https://ffd-microsite-production.apps.cloud.gov/" SITE_BASEURL_STAGING="https://ffd-microsite-staging.apps.cloud.gov/"
+  - SITE_BASEURL_PRODUCTION="https://ffd-microsite-production.app.cloud.gov/"
+  - SITE_BASEURL_STAGING="https://ffd-microsite-staging.app.cloud.gov/"
 deploy:
   - provider: cloudfoundry
     api: https://api.cloud.gov
