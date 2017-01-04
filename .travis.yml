@@ -2,6 +2,9 @@ language: go
 go:
 - 1.5.1
 - tip
+before_install:
+- rvm install 2.2.3
+- nvm install 5.5
 install:
 - go get -u -v github.com/spf13/hugo
 - gem install scss_lint
@@ -11,7 +14,7 @@ script:
 - npm test
 - gulp production build:website
 env:
-  - SITE_BASEURL_PRODUCTION="https://ffd-microsite-production.app.cloud.gov" SITE_BASEURL_STAGING="https://ffd-microsite-staging.app.cloud.gov/"
+  - SITE_BASEURL_PRODUCTION="https://ffd-microsite-production.app.cloud.gov/" SITE_BASEURL_STAGING="https://ffd-microsite-staging.app.cloud.gov/"
 deploy:
   - provider: cloudfoundry
     api: https://api.cloud.gov
