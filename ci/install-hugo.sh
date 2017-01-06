@@ -3,7 +3,7 @@
 set -e
 set -x
 
-HUGO_VERSION="0.18.1"
+$HUGO_VERSION="0.18.1"
 
 # Install Hugo
 $INSTALL_PATH=./bin
