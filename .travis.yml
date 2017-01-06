@@ -6,7 +6,7 @@ before_install:
   - rvm install 2.2.3
   - nvm install 5.5
 install:
-- go get -u -v github.com/spf13/hugo
+- ./ci/install-hugo.sh
 - npm install
 script:
 - npm test
