@@ -6,9 +6,8 @@ set -x
 HUGO_VERSION="0.18.1"
 
 # Install Hugo
-$INSTALL_PATH="$HOME/bin"
-mkdir -p $INSTALL_PATH
-export PATH="$PATH:$INSTALL_PATH"
+mkdir -p $HOME/bin
+export PATH="$PATH:$HOME/bin"
 wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux_amd64.tar.gz
 tar xvfz hugo_${HUGO_VERSION}_linux_amd64.tar.gz
-cp hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 $INSTALL_PATH/hugo
+cp hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 $HOME/bin/hugo
