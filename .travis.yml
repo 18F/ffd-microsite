@@ -22,7 +22,7 @@ deploy:
     space: microsite-staging
     on:
       repo: 18F/ffd-microsite
-      branch: staging
+      branch: continuous-dep
   - provider: cloudfoundry
     api: https://api.fr.cloud.gov
     username: fdf55389-2c59-47aa-83a0-bc812eb5b1fb
