@@ -1,12 +1,11 @@
-language: go
-go:
-- 1.5.1
-- tip
+language: node_js
+node_js:
+- 5.5
+- latest
 before_install:
   - rvm install 2.2.3
-  - nvm install 5.5
 install:
-- ./ci/install-hugo.sh
+- npm run ci:install-hugo
 - npm install
 script:
 - npm test

@@ -22,6 +22,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
+    "ci:install-hugo": "./ci/install-hugo.sh",
     "postinstall": "gem install html-proofer scss_lint",
     "start": "gulp && gulp clean-all && gulp website",
     "build": "gulp production build:website && htmlproofer ./public --disable-external",
