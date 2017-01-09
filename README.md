@@ -133,7 +133,7 @@ own [`staging`] [ffd-staging] and [`production`] [ffd-production] URLs.
 
 [tci-homepage]: https://travis-ci.org "Travis-CI: Homepage"
 [ffd-staging]: https://ffd-microsite-staging.app.cloud.gov "Federal Front Door: Staging"
-[ffd-production]: https://ffd-microsite-production.app.cloud.gov/ "Federal Front Door: Production"
+[ffd-production]: https://ffd-microsite-production.app.cloud.gov "Federal Front Door: Production"
 
 ### Manual deployment
 
