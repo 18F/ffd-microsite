@@ -10,7 +10,7 @@ Door Microsite.
  [Installation](#installation)   | Installing the project locally.
  [Development](#development)     | Development workflow using `gulp`.
  [Deployment](#deployment)       | Automated and Manual deployment information using `cloud.gov`.
- [Contributing](CONTRIBUTING.md) | Contributing to the project
+ [Contributing](CONTRIBUTING.md) | Contributing to the project.
 
 ## Installation
 
@@ -132,8 +132,8 @@ current process deploys our `staging` branch and our `master` branch to their
 own [`staging`] [ffd-staging] and [`production`] [ffd-production] URLs.
 
 [tci-homepage]: https://travis-ci.org "Travis-CI: Homepage"
-[ffd-staging]: https://ffd-microsite-staging.apps.cloud.gov "Federal Front Door: Staging"
-[ffd-production]: https://labs.usa.gov "Federal Front Door: Production"
+[ffd-staging]: https://ffd-microsite-staging.app.cloud.gov "Federal Front Door: Staging"
+[ffd-production]: https://ffd-microsite-production.app.cloud.gov/ "Federal Front Door: Production"
 
 ### Manual deployment
 
