@@ -1,12 +1,11 @@
-language: go
-go:
-- 1.5.1
-- tip
+language: node_js
+node_js:
+- 5.5
+- node
 before_install:
   - rvm install 2.2.3
-  - nvm install 5.5
 install:
-- go get -u -v github.com/spf13/hugo
+- npm run ci:install-hugo
 - npm install
 script:
 - npm test
@@ -15,21 +14,21 @@ env:
   - SITE_BASEURL_PRODUCTION="https://ffd-microsite-production.app.cloud.gov/" SITE_BASEURL_STAGING="https://ffd-microsite-staging.app.cloud.gov/"
 deploy:
   - provider: cloudfoundry
-    api: https://api.cloud.gov
-    username: gsa-ffd_deployer
+    api: https://api.fr.cloud.gov
+    username: fdf55389-2c59-47aa-83a0-bc812eb5b1fb
     password:
-      secure: "vRqNrRxE50we0m2i9KisWEZPxcbPfctsBC1gFYq6K38RbqoBYSzZeImRKaI66mCSij4xBM2dL/HVmiahzSPmG0CHHW45TL3T9bf00xb6fWuAofXVQRdZm704+exvEo4BxobUSHgWHcZ07RWWx51QqszlAGiR0PFTe67oAhT8ieMTmKlpgYUiFkex/qceRtv6OeAqZ+Bemc7LGyV40MkGPqSAjvDm97xJc4rrvwnZUUmFAxq/bIGmxi2OShlUFB/kvshcKb0bcPG8fRiwTZQY5UW+qVd9Gz84bcGaEf3fAV0EHQWmiSUEXiNuwsg6IpQXX1RtXMvDprC8RTlNvVZM34VWJz54FDWcAjv9HeEv4TGDCsG54fFepPYmyEVeUny2qayJ5Jp1jJtt8bGvksXOb+7jUhFf2GqliVtRkjDtI/UxL0Rb4PSJhW9qng0I7raBVuwhoY57kgKbhPoqk5wk5JZ+luGAZSuQ686RnLE5E60w2W0+MxSSUKKFXUN3e96NmlIwuyp0vpkzpc17vpunTSO9StnvBxJJfKCGrjZiH9C9ui/IvwiCB+ILX0TUKJ1qbWib7I238SOiXCADTsb7FqC+C99j+zw4PSJ3gCTvoctKQwa79FAz5Q+m4VtlLxfOitYrEa5U8Jr7u/xfliBjB0J/EAYaFgsDbFFfpF5K/gI="
-    organization: gsa-ffd
+      secure: "J3JX0fCbYSM6kFoHyJy+WFULYGaqcqI/Tmxm8Ym691oU+hfDrRWylMyjnHUWOzzVsuSQeVcIPb6lpQuhYs1Key1e3xefDQVUn9z6izH+vgAr9KRnWU+QyZ6pSEpo8wzfdbMStbNVM/egTX0HtZqj251AUuw6V44DTq9NYw6IWFvyroT6RqVLuubQBzQIbbbUKDOLGyxHmvgG60uHPAZ4HGmuHkZy4z/qXmARhsmP5j9VfFsxxnBkxFzJnozmq8nQ06VnittED0qxz+0e/HJs7bjlK9Gm/BRo6uvK01qXtAvbi8rczqZCm/nGyuWnNGfMXrkrVvMHq52xfFgJRsnrOE0zUHRVDofKRkK6Wg4AXsqv2qGaaYBQF5MEB7ewvm6TLYh9+cgHvbFye8GTVx0CBkMewlk+8BZjr39UXAZu3uHO/bAdz7C4O5BSTm77fIb66T8hy0AtTfNbGF2/AEAH1jG3gN4Q+kPtBVlFxG69GnLUjGGjPoC1RdE/MsANwhPI6EKBkYnKTF4U1F6RdSnfQ/ftZlRU0ulj3wAFlrrcTMbZiYNKa/4gduUGxm3cy5CiEkHQyKg5x3e+F065D6w9ZxXgrRvgf7p7Orlh2d8PPKcoap9ny0wOPDVJDQ7/uPQ7k0vO1UHOBIvpxG2Vegsgh+Pn12kDCo+be5UQSccIQZ8="
+    organization: gsa-opp-ffd
     space: microsite-staging
     on:
       repo: 18F/ffd-microsite
       branch: staging
   - provider: cloudfoundry
-    api: https://api.cloud.gov
-    username: gsa-ffd_deployer
+    api: https://api.fr.cloud.gov
+    username: fdf55389-2c59-47aa-83a0-bc812eb5b1fb
     password:
-      secure: "vRqNrRxE50we0m2i9KisWEZPxcbPfctsBC1gFYq6K38RbqoBYSzZeImRKaI66mCSij4xBM2dL/HVmiahzSPmG0CHHW45TL3T9bf00xb6fWuAofXVQRdZm704+exvEo4BxobUSHgWHcZ07RWWx51QqszlAGiR0PFTe67oAhT8ieMTmKlpgYUiFkex/qceRtv6OeAqZ+Bemc7LGyV40MkGPqSAjvDm97xJc4rrvwnZUUmFAxq/bIGmxi2OShlUFB/kvshcKb0bcPG8fRiwTZQY5UW+qVd9Gz84bcGaEf3fAV0EHQWmiSUEXiNuwsg6IpQXX1RtXMvDprC8RTlNvVZM34VWJz54FDWcAjv9HeEv4TGDCsG54fFepPYmyEVeUny2qayJ5Jp1jJtt8bGvksXOb+7jUhFf2GqliVtRkjDtI/UxL0Rb4PSJhW9qng0I7raBVuwhoY57kgKbhPoqk5wk5JZ+luGAZSuQ686RnLE5E60w2W0+MxSSUKKFXUN3e96NmlIwuyp0vpkzpc17vpunTSO9StnvBxJJfKCGrjZiH9C9ui/IvwiCB+ILX0TUKJ1qbWib7I238SOiXCADTsb7FqC+C99j+zw4PSJ3gCTvoctKQwa79FAz5Q+m4VtlLxfOitYrEa5U8Jr7u/xfliBjB0J/EAYaFgsDbFFfpF5K/gI="
-    organization: gsa-ffd
+      secure: "J3JX0fCbYSM6kFoHyJy+WFULYGaqcqI/Tmxm8Ym691oU+hfDrRWylMyjnHUWOzzVsuSQeVcIPb6lpQuhYs1Key1e3xefDQVUn9z6izH+vgAr9KRnWU+QyZ6pSEpo8wzfdbMStbNVM/egTX0HtZqj251AUuw6V44DTq9NYw6IWFvyroT6RqVLuubQBzQIbbbUKDOLGyxHmvgG60uHPAZ4HGmuHkZy4z/qXmARhsmP5j9VfFsxxnBkxFzJnozmq8nQ06VnittED0qxz+0e/HJs7bjlK9Gm/BRo6uvK01qXtAvbi8rczqZCm/nGyuWnNGfMXrkrVvMHq52xfFgJRsnrOE0zUHRVDofKRkK6Wg4AXsqv2qGaaYBQF5MEB7ewvm6TLYh9+cgHvbFye8GTVx0CBkMewlk+8BZjr39UXAZu3uHO/bAdz7C4O5BSTm77fIb66T8hy0AtTfNbGF2/AEAH1jG3gN4Q+kPtBVlFxG69GnLUjGGjPoC1RdE/MsANwhPI6EKBkYnKTF4U1F6RdSnfQ/ftZlRU0ulj3wAFlrrcTMbZiYNKa/4gduUGxm3cy5CiEkHQyKg5x3e+F065D6w9ZxXgrRvgf7p7Orlh2d8PPKcoap9ny0wOPDVJDQ7/uPQ7k0vO1UHOBIvpxG2Vegsgh+Pn12kDCo+be5UQSccIQZ8="
+    organization: gsa-opp-ffd
     space: microsite-production
     on:
       repo: 18F/ffd-microsite
