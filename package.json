@@ -22,8 +22,10 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
+    "ci:install-hugo": "./ci/install-hugo.sh",
+    "postinstall": "gem install html-proofer scss_lint",
     "start": "gulp && gulp clean-all && gulp website",
-    "build": "gulp production build:website",
+    "build": "gulp production build:website && htmlproofer ./public --disable-external",
     "test": "gulp scss-lint eslint"
   },
   "repository": {
@@ -38,7 +40,8 @@
     "Julia Elman <julia.elman@gsa.gov>",
     "Yoz Grahame <jeremy.grahame@gsa.gov>",
     "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
-    "Kate Saul <katherine.garklavs@gsa.gov>"
+    "Kate Saul <katherine.garklavs@gsa.gov>",
+    "John Donmoyer <john.donmoyer@gsa.gov"
   ],
   "license": "CC0-1.0",
   "bugs": {
